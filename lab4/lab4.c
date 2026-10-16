@@ -4,12 +4,14 @@
 #include <math.h>
 #include <stdlib.h>
 #include <locale.h>
+
 int n1(char* c, int* i, float* f, double* d);
 int n2(float f);
 int n3(char c);
 int n4(int i);
 int n5(void);
 int n6(void);
+
 int main(void)
 {
     setlocale(LC_ALL, ".UTF8");
@@ -52,7 +54,8 @@ int n2(float f)
 {
     printf("Задача 1а\n");
     int n = (int)f;
-    float k = f - int_part;
+    float k = f - n;
+
     printf("Вещественное число f: %f\n", f);
     printf("Целая часть: %d\n", n);
     printf("Дробная часть: %f\n\n", k);
@@ -71,13 +74,8 @@ int n3(char c)
 int n4(int i)
 {
     printf("Задача 1в\n");
-    if (i != 0) {
-        double result = 1.0 / i;
-        printf("Результат выражения 1/%d: %f\n\n", i, result);
-    }
-    else {
-        printf("Ошибка: деление на ноль невозможно (вы ввели i = 0).\n");
-    }
+    double result = 1.0 / i;
+    printf("Результат выражения 1/%d: %f\n\n", i, result);
     return 0;
 }
 
@@ -115,11 +113,11 @@ int n6(void)
     printf("Введите целое трехзначное число: ");
     scanf("%d", &n);
     int last = n % 10;
-    int middle = (n /10) % 10;
-    int first = n /100;
+    int middle = (n / 10) % 10;
+    int first = n / 100;
 
-    int sum = first +middle + last;
-    int revers = (last * 100) + (middle *10) + first;
+    int sum = first + middle + last;
+    int revers = (last * 100) + (middle * 10) + first;
     printf("\nПоследняя цифра: %d, первая: %d, сумма цифр: %d, число наоборот:%d\n", last, first, sum, revers);
     return 0;
 }
